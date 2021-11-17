@@ -80,6 +80,10 @@ const Todo =()=> {
     }
 
     return (
+        <>
+        <div className= "main-header-container">
+            <h3 className = "app-main-header">My Todo app</h3>
+        </div>
         <div className="main-container">
             <div className="child-container">
                 <figure>
@@ -115,6 +119,9 @@ const Todo =()=> {
                     {
                         addedItem.map((item)=> {
                             return(
+                                <>
+                                
+
                                 <div className="items" key={item.id}>
                                     <p className = "todo-item">{item.name} </p>
                                      
@@ -125,6 +132,7 @@ const Todo =()=> {
                                     
                                 
                                 </div>
+                                </>
                             )
                         })
                     }
@@ -133,6 +141,7 @@ const Todo =()=> {
                 
             </div>
         </div>
+        </>
     )
 }
 
