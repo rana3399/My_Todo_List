@@ -1,6 +1,3 @@
-.body{
-  background-color: rgb(180, 222, 255);
-}
 
 .App {
   text-align: center;
@@ -32,3 +29,7 @@
   color: #61dafb;
 }
 
+.app-main-heading{
+  font-size: xx-large;
+  color: blue;
+}
