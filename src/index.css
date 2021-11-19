@@ -1,4 +1,3 @@
-
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -44,12 +43,11 @@ code {
   font-size: large;
 }
 
-.added-item-child-container{
-  display: flex;
-}
 
 .todo-img{
-  border-radius: 1rem;
+  max-width: 50%;
+  height: auto;
+  
 }
 
 /* ------BUTTON SECTION----- */

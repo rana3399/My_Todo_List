@@ -1,0 +1,86 @@
+@media only screen and (max-width: 600px) {
+    .app-main-header{
+      color: rgb(226, 27, 27);
+      font-size: medium;
+      max-width: 25rem;
+      
+    }
+    
+    .input-field{
+      width: 15rem;
+      height: 1rem;
+      font-size: medium;
+    }
+  
+    .button-container button{
+      width: 8rem;
+      height: 2rem;
+    }
+    
+    .added-items-list{
+      width: 18rem;
+    }
+    
+    .icon-container{
+      right: .1rem;
+    }
+  }
+  
+  @media only screen and (min-width: 600px) {
+    .app-main-header{
+      color: rgb(27, 226, 53); 
+    }
+    
+    .input-field{
+      max-width: 55rem;
+    }
+  
+    .added-items-list{
+      max-width: 35rem;
+    }
+  }
+  
+  @media only screen and (min-width: 768px) {
+    .app-main-header{
+      color: rgb(27, 226, 53); 
+    }
+    
+    .input-field{
+      max-width: 55rem;
+    }
+  
+    .added-items-list{
+      max-width: 45rem;
+    }
+  }
+  
+  @media only screen and (min-width: 992px) {
+    body{
+      font-size: x-large;
+    }
+  
+    .app-main-header{
+      color: rgb(226, 27, 27);
+      max-width: 35rem;
+      
+    }
+    
+    .input-field{
+      width: 35rem;
+      height: 3rem;
+    }
+  
+    .button-container button{
+      width: 10rem;
+      height: 3rem;
+    }
+    
+    .added-items-list{
+      width: 45rem;
+    }
+    
+    .icon-container{
+      right: 2rem;
+    }
+  }
+  
