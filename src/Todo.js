@@ -1,4 +1,6 @@
 import React, { useState,useEffect } from 'react'
+import { BsGithub } from 'react-icons/bs';
+
 
 const localDataFunc=()=>{
     let localData = localStorage.getItem("inputKey")
@@ -82,7 +84,7 @@ const Todo =()=> {
     return (
         <>
         <div className= "main-header-container">
-            <h3 className = "app-main-header">My Todo app</h3>
+            <h3 className = "app-main-header">My Todo List</h3>
         </div>
         <div className="main-container">
             <div className="child-container">
@@ -112,7 +114,6 @@ const Todo =()=> {
                     <button className="delete-btn" onClick = {handleDeleteAll}>
                         Delete All <i class="fas fa-minus-circle"></i> 
                     </button>
-
                 </div>
 
                 <div className="added-items-list">
@@ -120,26 +121,25 @@ const Todo =()=> {
                         addedItem.map((item)=> {
                             return(
                                 <>
-                                
-
                                 <div className="items" key={item.id}>
-                                    <p className = "todo-item">{item.name} </p>
-                                     
+                                    <p className = "todo-item">{item.name} </p>                                  
                                     <div className="icon-container">
                                     <span className="edit-icon"><i onClick={()=> editItemFunc(item.id)} className="far fa-edit"></i></span>
                                     <span className="delete-icon"><i onClick={()=> handleDelete(item.id) } className="fas fa-trash-alt"></i> </span>
                                     </div>
-                                    
-                                
                                 </div>
                                 </>
                             )
                         })
                     }
 
-                </div>
-                
+                </div> 
             </div>
+        </div>
+         {/* -------------All Rights Reserved Area---------------- */}
+        <div className="rights"> 
+          <p> created by &copy; <a href="https://react-icons.github.io/react-icons/">Rana Ahmed</a></p> 
+            <p><a href="https://github.com/rana3399/Personal-To-Do-App-React/tree/master"> Github <BsGithub size={32}/> </a></p>            
         </div>
         </>
     )

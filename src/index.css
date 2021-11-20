@@ -146,3 +146,12 @@ code {
   margin-right: .5rem;
   width: 3rem; 
 }
+
+.rights{
+  color:rgb(43, 43, 43);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-top: 7rem;
+  margin-right: 1rem;
+}
