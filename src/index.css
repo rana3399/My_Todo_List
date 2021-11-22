@@ -142,16 +142,34 @@ code {
   margin: 0 2rem;
 }
 
+.items:nth-child(odd) {
+background-color: rgb(121, 160, 165);
+margin: .2rem .5rem;
+}
+
+
+
 .items span{
   margin-right: .5rem;
   width: 3rem; 
 }
+
+/* ------FOOTER SECTIIONS---- */
 
 .rights{
   color:rgb(43, 43, 43);
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  margin-top: 7rem;
+  margin: 7rem 2rem;
+}
+
+.social-media{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-media p{
   margin-right: 1rem;
 }

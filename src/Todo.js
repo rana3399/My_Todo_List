@@ -1,5 +1,6 @@
 import React, { useState,useEffect } from 'react'
-import { BsGithub } from 'react-icons/bs';
+import Footer from './Footer';
+
 
 
 const localDataFunc=()=>{
@@ -136,11 +137,9 @@ const Todo =()=> {
                 </div> 
             </div>
         </div>
-         {/* -------------All Rights Reserved Area---------------- */}
-        <div className="rights"> 
-          <p> created by &copy; <a href="https://react-icons.github.io/react-icons/">Rana Ahmed</a></p> 
-            <p><a href="https://github.com/rana3399/Personal-To-Do-App-React/tree/master"> Github <BsGithub size={32}/> </a></p>            
-        </div>
+        <Footer/>
+
+
         </>
     )
 }

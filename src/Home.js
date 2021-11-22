@@ -1,8 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Footer from './Footer'
 
 function Home( ) {
     return (
+        <>
         <div>
             <p>This is Home / Log in page </p>
             <Link to="/todo"> Click here to go to Todo-List page. </Link>
@@ -18,6 +20,8 @@ function Home( ) {
                 <p className="forgot" align="center"> <a href="#"/>Forgot Password?</p>       
         </div>
         </div>
+        <Footer/>
+        </>
     )
 }
 
