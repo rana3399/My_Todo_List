@@ -1,4 +1,4 @@
-# My To Do List - React App
+# My To Do List
 1. App created with React.js and CSS.
 
 2. This app is mobile friendly (Mobile Responsive)
