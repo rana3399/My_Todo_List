@@ -2,12 +2,12 @@ import './App.css';
 import Todo from './Todo';
 import Home from './Home';
 
-import { HashRouter,Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter,Routes, Route, Link } from "react-router-dom";
 
 function App() {
  
   return (
-    <HashRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL} >
     <div className="App">
       <Routes>
 
@@ -18,7 +18,7 @@ function App() {
 
       </Routes>
     </div>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 
