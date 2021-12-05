@@ -8,7 +8,7 @@ import { HashRouter,Routes, Route, Link } from "react-router-dom";
 function App() {
  
   return (
-    <HashRouter basename={process.env.PUBLIC_URL}>
+    <HashRouter>
       <div className="App">
         <Routes>
           <Route path="/" element={<Home />} />
