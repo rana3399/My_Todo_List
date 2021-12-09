@@ -17,6 +17,7 @@ const Todo =()=> {
     const [inputItem, setInputItem] = useState("");
     const [addedItem, setAddedItem] = useState(localDataFunc());
     const [editItems, setEditItems] = useState("");
+    const [toggleButton, setToggleButton] = useState(false);
 
 
 //   -------------  adding local storage----------
@@ -27,17 +28,6 @@ const Todo =()=> {
 
     const handleOnChange = (event)=>{
         setInputItem(event.target.value); 
-    }
-
-    // -------------Edited Items Handler----------------
-    const editItemFunc= (index)=>{
-        const filteredEditItems = addedItem.find((item)=>{
-            return  item.id === index               
-        })
-        console.log(filteredEditItems);
-
-        setInputItem(filteredEditItems.name);
-        setEditItems(index);
     }
     
     //ON KEY PRESS-------------------------------------
@@ -51,25 +41,29 @@ const Todo =()=> {
             setInputItem("");
         }
     }
-    //console.log(addedItem);
 
     //Add the items - ON BUITTON CLICK -------------------------------------
     const handleOnClick =()=>{
         if(!inputItem){
             alert("Please write something")
         }
-        else if(editItems){
+        else if(inputItem && toggleButton){
+            console.log(inputItem);
             console.log(editItems);
+
             const itemNeedToEdit = addedItem.map((curElem)=>{
                 if(curElem.id === editItems){
+                    
+                    console.log(curElem.id);
+                    console.log(curElem);
                     return {...curElem, name: inputItem}
-                }          
-             })
-             console.log(itemNeedToEdit);
-           
-            setAddedItem(itemNeedToEdit)
-        }
-        
+                    
+                } else{
+                    return curElem;
+                }         
+             })          
+             setInputItem(itemNeedToEdit)
+        }       
         else{
             let newlyAddedItems = {
                 id: Math.random()*1000 ,
@@ -78,6 +72,18 @@ const Todo =()=> {
             setAddedItem([...addedItem, newlyAddedItems])
             setInputItem("")
         }
+    }
+
+    // -------------Edited Items Handler----------------
+    const editItemFunc= (index)=>{
+        const filteredEditItems = addedItem.find((item)=>{
+            return  item.id === index              
+        })
+        console.log(filteredEditItems);
+
+        setInputItem(filteredEditItems.name);
+        setEditItems(index);
+        setToggleButton(true);
     }
     
     // -------------Delete Selected Items Handle----------------
@@ -124,9 +130,13 @@ const Todo =()=> {
                 </figure>
                 
                 <div className="button-container">
+
+                {toggleButton ? <button className="add-btn" >EDIT items <i onClick = {()=>console.log("i am clicked")} className="far fa-edit"></i></button> :
                     <button className="add-btn" onClick = {handleOnClick} >
                         Add more items <i className="fas fa-plus"></i> 
                     </button>
+                }
+                   
                     <button className="delete-btn" onClick = {handleDeleteAll}>
                         Delete All <i class="fas fa-minus-circle"></i> 
                     </button>
