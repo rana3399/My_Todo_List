@@ -1,5 +1,6 @@
 import React, { useState,useEffect } from 'react'
 import Footer from './Footer';
+import myImagee from "./todo-app-img.jpg"
 
 
 
@@ -25,7 +26,7 @@ const Todo =()=> {
     }, [addedItem])
 
     const handleOnChange = (event)=>{
-        setInputItem(event.target.value)   
+        setInputItem(event.target.value); 
     }
 
     // -------------Edited Items Handler----------------
@@ -33,9 +34,10 @@ const Todo =()=> {
         const filteredEditItems = addedItem.find((item)=>{
             return  item.id === index               
         })
+        console.log(filteredEditItems);
 
-        setInputItem(filteredEditItems.name)
-        setEditItems(index)   
+        setInputItem(filteredEditItems.name);
+        setEditItems(index);
     }
     
     //ON KEY PRESS-------------------------------------
@@ -45,17 +47,30 @@ const Todo =()=> {
                 id: Math.random()*1000,
                 name: inputItem
             }
-            setAddedItem([...addedItem, newlyAddedItems])
-            setInputItem("")
+            setAddedItem([...addedItem, newlyAddedItems]);
+            setInputItem("");
         }
     }
     //console.log(addedItem);
 
-    //ON BUITTON CLICK -------------------------------------
+    //Add the items - ON BUITTON CLICK -------------------------------------
     const handleOnClick =()=>{
         if(!inputItem){
             alert("Please write something")
-        }else{
+        }
+        else if(editItems){
+            console.log(editItems);
+            const itemNeedToEdit = addedItem.map((curElem)=>{
+                if(curElem.id === editItems){
+                    return {...curElem, name: inputItem}
+                }          
+             })
+             console.log(itemNeedToEdit);
+           
+            setAddedItem(itemNeedToEdit)
+        }
+        
+        else{
             let newlyAddedItems = {
                 id: Math.random()*1000 ,
                 name: inputItem
@@ -92,7 +107,7 @@ const Todo =()=> {
                 <figure>
                 <img 
                 className="todo-img"
-                src="../img/todo-app-img.jpg" 
+                src={myImagee} 
                 alt="todo-app" 
                 />
 
@@ -133,7 +148,6 @@ const Todo =()=> {
                             )
                         })
                     }
-
                 </div> 
             </div>
         </div>
