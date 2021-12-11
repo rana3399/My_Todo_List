@@ -2,8 +2,6 @@ import React, { useState,useEffect } from 'react'
 import Footer from './Footer';
 import myImagee from "./todo-app-img.jpg"
 
-
-
 const localDataFunc=()=>{
     let localData = localStorage.getItem("inputKey")
     if(localData){
@@ -15,16 +13,16 @@ const localDataFunc=()=>{
 
 const Todo =()=> {
     const [inputItem, setInputItem] = useState("");
-    const [addedItem, setAddedItem] = useState(localDataFunc());
+    const [addedItems, setAddedItems] = useState(localDataFunc());
     const [editItems, setEditItems] = useState("");
-    const [toggleButton, setToggleButton] = useState(false);
+    const [editing, setEditing] = useState(false);
 
 
 //   -------------  adding local storage----------
     useEffect(( )=> {
-       return localStorage.setItem("inputKey", JSON.stringify(addedItem))
+       return localStorage.setItem("inputKey", JSON.stringify(addedItems))
 
-    }, [addedItem])
+    }, [addedItems])
 
     const handleOnChange = (event)=>{
         setInputItem(event.target.value); 
@@ -37,7 +35,7 @@ const Todo =()=> {
                 id: Math.random()*1000,
                 name: inputItem
             }
-            setAddedItem([...addedItem, newlyAddedItems]);
+            setAddedItems([...addedItems, newlyAddedItems]);
             setInputItem("");
         }
     }
@@ -47,61 +45,61 @@ const Todo =()=> {
         if(!inputItem){
             alert("Please write something")
         }
-        else if(inputItem && toggleButton){
-            console.log(inputItem);
-            console.log(editItems);
+        else if(editing){
 
-            const itemNeedToEdit = addedItem.map((curElem)=>{
+            const itemNeedToEdit = addedItems.map((curElem)=>{
                 if(curElem.id === editItems){
                     
-                    console.log(curElem.id);
-                    console.log(curElem);
                     return {...curElem, name: inputItem}
                     
                 } else{
                     return curElem;
                 }         
              })          
-             setInputItem(itemNeedToEdit)
+             setAddedItems(itemNeedToEdit);
+             setInputItem("");
+             setEditing(false);
         }       
         else{
             let newlyAddedItems = {
                 id: Math.random()*1000 ,
                 name: inputItem
             }
-            setAddedItem([...addedItem, newlyAddedItems])
+            setAddedItems([...addedItems, newlyAddedItems])
             setInputItem("")
         }
     }
 
     // -------------Edited Items Handler----------------
     const editItemFunc= (index)=>{
-        const filteredEditItems = addedItem.find((item)=>{
+        const filteredEditItems = addedItems.find((item)=>{
             return  item.id === index              
         })
         console.log(filteredEditItems);
 
         setInputItem(filteredEditItems.name);
         setEditItems(index);
-        setToggleButton(true);
+        setEditing(true);
     }
     
     // -------------Delete Selected Items Handle----------------
     const handleDelete = (id) =>{
-       const filterItem = addedItem.filter((eachItem)=> {
+       const filterItem = addedItems.filter((eachItem)=> {
             return eachItem.id !== id
         })
-        setAddedItem(filterItem)
+        setAddedItems(filterItem)
     }
 
     // -------------Delete All Items Handle----------------
     const handleDeleteAll =()=> {
-        if(addedItem.length >=1){
-            return setAddedItem([])
+        if(addedItems.length >=1){
+            return setAddedItems([])
         }else{
            return alert("Nothing to delete!")
         }
     }
+
+
 
     return (
         <>
@@ -131,7 +129,7 @@ const Todo =()=> {
                 
                 <div className="button-container">
 
-                {toggleButton ? <button className="add-btn" >EDIT items <i onClick = {()=>console.log("i am clicked")} className="far fa-edit"></i></button> :
+                {editing ? <button onClick = {handleOnClick} className="add-btn" >EDIT items <i className="far fa-edit"></i></button> :
                     <button className="add-btn" onClick = {handleOnClick} >
                         Add more items <i className="fas fa-plus"></i> 
                     </button>
@@ -142,9 +140,11 @@ const Todo =()=> {
                     </button>
                 </div>
 
-                <div className="added-items-list">
+
+                {addedItems.length > 0 && 
+                    <div className="added-items-list">
                     {
-                        addedItem.map((item)=> {
+                        addedItems.map((item)=> {
                             return(
                                 <>
                                 <div className="items" key={item.id}>
@@ -159,6 +159,9 @@ const Todo =()=> {
                         })
                     }
                 </div> 
+                
+                }
+                
             </div>
         </div>
         <Footer/>
