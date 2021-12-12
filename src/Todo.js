@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState,useEffect } from 'react';
 import Footer from './Footer';
 import myImagee from "./todo-app-img.jpg"
 
@@ -43,7 +43,7 @@ const Todo =()=> {
     //Add the items - ON BUITTON CLICK -------------------------------------
     const handleOnClick =()=>{
         if(!inputItem){
-            alert("Please write something")
+            alert("Please write something");
         }
         else if(editing){
 
@@ -65,8 +65,8 @@ const Todo =()=> {
                 id: Math.random()*1000 ,
                 name: inputItem
             }
-            setAddedItems([...addedItems, newlyAddedItems])
-            setInputItem("")
+            setAddedItems([...addedItems, newlyAddedItems]);
+            setInputItem("");
         }
     }
 
@@ -87,7 +87,7 @@ const Todo =()=> {
        const filterItem = addedItems.filter((eachItem)=> {
             return eachItem.id !== id
         })
-        setAddedItems(filterItem)
+        setAddedItems(filterItem);
     }
 
     // -------------Delete All Items Handle----------------
@@ -171,4 +171,4 @@ const Todo =()=> {
     )
 }
 
-export default Todo
+export default Todo;
