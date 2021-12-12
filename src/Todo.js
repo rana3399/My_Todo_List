@@ -1,6 +1,9 @@
 import React, { useState,useEffect } from 'react';
+
+import Header from './Header';
 import Footer from './Footer';
-import myImagee from "./todo-app-img.jpg"
+import Item from './Item';
+
 
 const localDataFunc=()=>{
     let localData = localStorage.getItem("inputKey")
@@ -28,19 +31,14 @@ const Todo =()=> {
         setInputItem(event.target.value); 
     }
     
-    //ON KEY PRESS-------------------------------------
+    //ON KEY PRESS-------------------
     const handleKeyPress =(e)=>{
         if(e.key === 'Enter'){
-            let newlyAddedItems = {
-                id: Math.random()*1000,
-                name: inputItem
-            }
-            setAddedItems([...addedItems, newlyAddedItems]);
-            setInputItem("");
+            handleOnClick();
         }
     }
 
-    //Add the items - ON BUITTON CLICK -------------------------------------
+    //Add the items - ON BUITTON CLICK --------
     const handleOnClick =()=>{
         if(!inputItem){
             alert("Please write something");
@@ -66,12 +64,13 @@ const Todo =()=> {
                 name: inputItem
             }
             setAddedItems([...addedItems, newlyAddedItems]);
+            console.log(addedItems);
             setInputItem("");
         }
     }
 
     // -------------Edited Items Handler----------------
-    const editItemFunc= (index)=>{
+    const handleItemEdit= (index)=>{
         const filteredEditItems = addedItems.find((item)=>{
             return  item.id === index              
         })
@@ -82,8 +81,8 @@ const Todo =()=> {
         setEditing(true);
     }
     
-    // -------------Delete Selected Items Handle----------------
-    const handleDelete = (id) =>{
+    // // -------------Delete Selected Items Handle----------------
+    const handleItemDelete = (id) =>{
        const filterItem = addedItems.filter((eachItem)=> {
             return eachItem.id !== id
         })
@@ -99,24 +98,10 @@ const Todo =()=> {
         }
     }
 
-
-
     return (
         <>
-        <div className= "main-header-container">
-            <h3 className = "app-main-header">My Todo List</h3>
-        </div>
-        <div className="main-container">
-            <div className="child-container">
-                <figure>
-                <img 
-                className="todo-img"
-                src={myImagee} 
-                alt="todo-app" 
-                />
-
-                <figcaption>Add your list here ✌ </figcaption>
-                
+        <Header /> 
+            <div className="child-container">                     
                 <input 
                 onKeyPress={handleKeyPress}
                 className = "input-field"
@@ -125,48 +110,35 @@ const Todo =()=> {
                 onChange={handleOnChange}
                 value= {inputItem}
                 />
-                </figure>
                 
                 <div className="button-container">
 
-                {editing ? <button onClick = {handleOnClick} className="add-btn" >EDIT items <i className="far fa-edit"></i></button> :
-                    <button className="add-btn" onClick = {handleOnClick} >
-                        Add more items <i className="fas fa-plus"></i> 
-                    </button>
-                }
-                   
-                    <button className="delete-btn" onClick = {handleDeleteAll}>
-                        Delete All <i class="fas fa-minus-circle"></i> 
-                    </button>
+                    {editing ? <button onClick = {handleOnClick} className="add-btn" >EDIT items <i className="far fa-edit"></i></button> :
+                        <button className="add-btn" onClick = {handleOnClick} >
+                            Add more items <i className="fas fa-plus"></i> 
+                        </button>
+                        }                  
+                        <button className="delete-btn" onClick = {handleDeleteAll}>
+                            Delete All <i class="fas fa-minus-circle"></i> 
+                        </button>
                 </div>
 
-
                 {addedItems.length > 0 && 
-                    <div className="added-items-list">
+                <div className="added-items-list">
                     {
-                        addedItems.map((item)=> {
-                            return(
-                                <>
-                                <div className="items" key={item.id}>
-                                    <p className = "todo-item">{item.name} </p>                                  
-                                    <div className="icon-container">
-                                    <span className="edit-icon"><i onClick={()=> editItemFunc(item.id)} className="far fa-edit"></i></span>
-                                    <span className="delete-icon"><i onClick={()=> handleDelete(item.id) } className="fas fa-trash-alt"></i> </span>
-                                    </div>
-                                </div>
-                                </>
+                        addedItems.map((eachitem)=> {
+                            return(                             
+                                <Item eachitem={eachitem}  
+                                onItemEdit={()=>handleItemEdit(eachitem.id)} 
+                                onItemDelete={()=> handleItemDelete(eachitem.id)} 
+                                />   
                             )
                         })
                     }
-                </div> 
-                
-                }
-                
+                </div>               
+                }               
             </div>
-        </div>
         <Footer/>
-
-
         </>
     )
 }
