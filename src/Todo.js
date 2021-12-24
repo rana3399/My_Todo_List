@@ -28,6 +28,7 @@ const Todo =()=> {
     }, [addedItems])
 
     const handleOnChange = (event)=>{
+        console.log(event.target.value);
         setInputItem(event.target.value); 
     }
     
@@ -123,7 +124,7 @@ const Todo =()=> {
                         </button>
                 </div>
 
-                {addedItems.length > 0 && 
+                {addedItems.length > 0 &&
                 <div className="added-items-list">
                     {
                         addedItems.map((eachitem)=> {
