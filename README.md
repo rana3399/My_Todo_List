@@ -20,5 +20,3 @@
 4. Local Storage()
 
 5. On Key Press
-
-## Find all my work in my [Rana-Ahmed Portfolio]("3")
