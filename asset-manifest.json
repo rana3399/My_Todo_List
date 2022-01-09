@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/my-todo-list/static/css/main.dccf44a1.chunk.css",
-    "main.js": "/my-todo-list/static/js/main.a973fb82.chunk.js",
-    "main.js.map": "/my-todo-list/static/js/main.a973fb82.chunk.js.map",
-    "runtime-main.js": "/my-todo-list/static/js/runtime-main.9dba1ea1.js",
-    "runtime-main.js.map": "/my-todo-list/static/js/runtime-main.9dba1ea1.js.map",
-    "static/js/2.d80dfaa4.chunk.js": "/my-todo-list/static/js/2.d80dfaa4.chunk.js",
-    "static/js/2.d80dfaa4.chunk.js.map": "/my-todo-list/static/js/2.d80dfaa4.chunk.js.map",
-    "static/js/3.648308b4.chunk.js": "/my-todo-list/static/js/3.648308b4.chunk.js",
-    "static/js/3.648308b4.chunk.js.map": "/my-todo-list/static/js/3.648308b4.chunk.js.map",
-    "index.html": "/my-todo-list/index.html",
-    "static/css/main.dccf44a1.chunk.css.map": "/my-todo-list/static/css/main.dccf44a1.chunk.css.map",
-    "static/js/2.d80dfaa4.chunk.js.LICENSE.txt": "/my-todo-list/static/js/2.d80dfaa4.chunk.js.LICENSE.txt",
-    "static/media/todo-app-img.5858b082.jpg": "/my-todo-list/static/media/todo-app-img.5858b082.jpg"
+    "main.css": "/My_Todo_List/static/css/main.dccf44a1.chunk.css",
+    "main.js": "/My_Todo_List/static/js/main.7b2d913b.chunk.js",
+    "main.js.map": "/My_Todo_List/static/js/main.7b2d913b.chunk.js.map",
+    "runtime-main.js": "/My_Todo_List/static/js/runtime-main.54c18cee.js",
+    "runtime-main.js.map": "/My_Todo_List/static/js/runtime-main.54c18cee.js.map",
+    "static/js/2.d80dfaa4.chunk.js": "/My_Todo_List/static/js/2.d80dfaa4.chunk.js",
+    "static/js/2.d80dfaa4.chunk.js.map": "/My_Todo_List/static/js/2.d80dfaa4.chunk.js.map",
+    "static/js/3.648308b4.chunk.js": "/My_Todo_List/static/js/3.648308b4.chunk.js",
+    "static/js/3.648308b4.chunk.js.map": "/My_Todo_List/static/js/3.648308b4.chunk.js.map",
+    "index.html": "/My_Todo_List/index.html",
+    "static/css/main.dccf44a1.chunk.css.map": "/My_Todo_List/static/css/main.dccf44a1.chunk.css.map",
+    "static/js/2.d80dfaa4.chunk.js.LICENSE.txt": "/My_Todo_List/static/js/2.d80dfaa4.chunk.js.LICENSE.txt",
+    "static/media/todo-app-img.5858b082.jpg": "/My_Todo_List/static/media/todo-app-img.5858b082.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.9dba1ea1.js",
+    "static/js/runtime-main.54c18cee.js",
     "static/js/2.d80dfaa4.chunk.js",
     "static/css/main.dccf44a1.chunk.css",
-    "static/js/main.a973fb82.chunk.js"
+    "static/js/main.7b2d913b.chunk.js"
   ]
 }
